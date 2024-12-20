@@ -1,0 +1,9 @@
+<div class="kitten-<%=kitten.id%>">
+    <%=link_to kitten do %>
+        <p>Name: <%= kitten.name %></p>
+    <%end%>
+    <p>Age: <%=kitten.age%></p>
+    <p>Cuteness: <%=kitten.cuteness%></p>
+    <p>Softness: <%=kitten.softness%></p>
+    <%=button_to "Destroy Kitten?", kitten, method: :delete%>
+</div>

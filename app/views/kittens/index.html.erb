@@ -1,0 +1,6 @@
+<% if @kittens.length > 0 %>
+    <% @kittens.each do |kitten| %>
+        <%= render kitten %>
+    <% end %>    
+<% end %>
+<%= link_to "Create kitten", new_kitten_path%>
