@@ -1,7 +1,8 @@
+require "flickr"
+
 class KittensController < ApplicationController
   def index
     @kittens = Kitten.all
-
     respond_to do |format|
       format.html
       format.json { render json: @kittens }
@@ -49,6 +50,12 @@ class KittensController < ApplicationController
       kitten.destroy
     end
     redirect_to root_path
+  end
+
+  def search_results
+    # @api_key = Rails.application.credentials.flickr[:api_key]
+    flickr = Flickr.new Rails.application.credentials.flickr[:api_key], Rails.application.credentials.flickr[:api_secret]
+    @results = flickr.photos.search text: "Kitten " + params[:search_term].to_s
   end
 
   private

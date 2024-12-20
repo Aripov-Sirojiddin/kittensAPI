@@ -1,0 +1,4 @@
+<%@results.each do |result| %>
+<img src="https://live.staticflickr.com/<%=result.server%>/<%=result.id%>_<%=result.secret%>.jpg" alt="<%=result.title%>">
+<p><%=result.title%></p>
+<%end%>
